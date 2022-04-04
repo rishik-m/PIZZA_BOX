@@ -1,10 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
-    <div>
-      <h1> Heeloo </h1>
+    <div className="App">
+      <Navbar />
     </div>
   );
 }
