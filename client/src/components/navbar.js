@@ -3,10 +3,10 @@ import React from "react";
 function navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-3 mb-2 bg-body rounded">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            <strong> PIZZA BOX </strong>
           </a>
           <button
             className="navbar-toggler"
@@ -22,13 +22,13 @@ function navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
+                <a className="nav-link" aria-current="page" href="#">
+                  Login
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Features
+                  Cart
                 </a>
               </li>
             </ul>
