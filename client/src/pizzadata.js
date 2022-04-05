@@ -74,7 +74,7 @@ const pizzas = [
       "The pizza base is made by mixing yeast, sugar, olive oil, salt, and all-purpose flour in a big bowl. After mixing all the ingredients, it is baked by adding the cheese as topping over it. The base is perfectly prepared by adding single layer of cheese over it. It is mouth-watering pizza for cheese lovers.",
   },
   {
-    name: "Double Cheese Margherita Pizza",
+    name: "Double Cheese Margherita",
     varients: ["small", "medium", "large"],
     prices: [
       {

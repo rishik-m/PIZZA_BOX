@@ -27,3 +27,14 @@ h1 {
 .flex-container {
   display: flex !important;
 }
+
+.btn_cart {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+}
+
+select {
+  border-color: black !important;
+  box-shadow: none !important;
+}
