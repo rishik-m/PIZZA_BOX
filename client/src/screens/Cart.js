@@ -1,9 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../actions/cartActions";
+import { deleteFromCart } from "../actions/cartActions";
 
 function Cart() {
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
+  const subtotal = cartItems.reduce((x, item) => x + item.price, 0);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -25,9 +30,25 @@ function Cart() {
                     {item.price}{" "}
                   </h1>
                   <h1 style={{ display: "inline" }}> Quantity: </h1>
-                  <i className="fa fa-plus" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-plus"
+                    aria-hidden="true"
+                    onClick={() =>
+                      dispatch(
+                        addToCart(item, (item.quantity += 1), item.varient)
+                      )
+                    }
+                  ></i>
                   <b> {item.quantity} </b>
-                  <i className="fa fa-minus" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-minus"
+                    aria-hidden="true"
+                    onClick={() =>
+                      dispatch(
+                        addToCart(item, (item.quantity -= 1), item.varient)
+                      )
+                    }
+                  ></i>
                   <hr />
                 </div>
                 <div className="m-1 w-100">
@@ -37,15 +58,20 @@ function Cart() {
                   />
                 </div>
                 <div className="m-1 w-100">
-                  <i className="fa fa-trash mt-5" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-trash mt-5"
+                    aria-hidden="true"
+                    onClick={() => dispatch(deleteFromCart(item))}
+                  ></i>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="col-md-4">
-          <h2 style={{ fontSize: "30px" }}> Subtotal </h2>
+        <div className="col-md-4 text-end">
+          <h2 style={{ fontSize: "30px" }}> Subtotal: ₹{subtotal} </h2>
+          <button className="btn_cart"> PAY NOW </button>
         </div>
       </div>
     </div>

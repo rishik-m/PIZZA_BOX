@@ -7,7 +7,7 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-3 mb-2 bg-body rounded">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             <strong> PIZZA BOX </strong>
           </a>
           <button
