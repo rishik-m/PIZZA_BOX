@@ -19,6 +19,7 @@ const initialState = {
     cartItems: cartItems,
   },
 };
+
 const composedEnhancers = composeWithDevTools({});
 
 const store = createStore(
