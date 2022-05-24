@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { registerUser } from "../actions/userActions";
 
 function Register() {
   const [name, setName] = useState("");
@@ -6,7 +8,9 @@ function Register() {
   const [password, setPassword] = useState("");
   const [conpassword, setConpassword] = useState("");
 
-  function registerUser() {
+  const dispatch = useDispatch();
+
+  function register() {
     if (password !== conpassword) {
       alert("Passwords do not matched!!!");
     } else {
@@ -16,6 +20,7 @@ function Register() {
         password,
       };
       console.log(user);
+      dispatch(registerUser(user));
     }
   }
 
@@ -60,7 +65,7 @@ function Register() {
               onChange={(e) => setConpassword(e.target.value)}
               required
             />
-            <button onClick={registerUser} className="btn_cart mt-3">
+            <button onClick={register} className="btn_cart mt-3">
               {" "}
               Register{" "}
             </button>
