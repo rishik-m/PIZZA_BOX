@@ -17,9 +17,16 @@ const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
 
+const currUser = localStorage.getItem("currUser")
+  ? JSON.parse(localStorage.getItem("currUser"))
+  : null;
+
 const initialState = {
   cartReducer: {
     cartItems: cartItems,
+  },
+  loginUserReducer: {
+    currUser: currUser,
   },
 };
 

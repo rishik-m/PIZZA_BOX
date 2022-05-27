@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 import Navbar from "./components/navbar";
 import Home from "./screens/Home";
 import Cart from "./screens/Cart";
