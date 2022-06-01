@@ -8,6 +8,7 @@ import Cart from "./screens/Cart";
 import { BrowserRouter, Switch, Route, Link, Routes } from "react-router-dom";
 import Register from "./screens/Register";
 import Login from "./screens/Login";
+import Orders from "./screens/Orders";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </BrowserRouter>
     </div>
