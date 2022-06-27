@@ -73,7 +73,7 @@ function Register() {
               onChange={(e) => setConpassword(e.target.value)}
               required
             />
-            <button onClick={register} className="btn_cart mt-3 mb-3">
+            <button onClick={register} className="btn btn_cart mt-3 mb-3">
               {" "}
               Register{" "}
             </button>

@@ -29,7 +29,7 @@ function Checkout({ subtotal }) {
         currency="INR"
         stripeKey="pk_test_51L5UThKEl5INxxJqGSWenYyXaFRv540JQ2k8W1jGL4l1bxd4dWpGkgIXpZO96QcD6LhCbJonkNE6prFGbSPPw0c300Sa9Qdixv"
       >
-        <button className="btn_cart"> PAY NOW </button>
+        <button className="btn btn_cart"> PAY NOW </button>
       </StripeCheckout>
     </div>
   );

@@ -68,7 +68,7 @@ function Pizza({ pizza }) {
           </h1>
         </div>
         <div className="w-100 m-1">
-          <button className="btn_cart" onClick={add_cart}>
+          <button className="btn btn_cart" onClick={add_cart}>
             {" "}
             ADD TO CART{" "}
           </button>
@@ -91,7 +91,7 @@ function Pizza({ pizza }) {
         </Modal.Body>
 
         <Modal.Footer>
-          <button className="btn_cart" onClick={handleClose}>
+          <button className="btn btn_cart" onClick={handleClose}>
             {" "}
             CLOSE{" "}
           </button>

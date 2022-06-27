@@ -50,7 +50,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button onClick={login} className="btn_cart mt-3 mb-3">
+            <button onClick={login} className="btn btn_cart mt-3 mb-3">
               {" "}
               LOGIN{" "}
             </button>
