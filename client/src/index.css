@@ -57,3 +57,23 @@ input {
   box-shadow: none !important;
   margin-top: 10px !important;
 }
+
+.admin_style {
+  padding: 10px;
+  background-color: rgb(1, 1, 77);
+}
+
+.admin_style li {
+  list-style-type: none !important;
+  display: inline !important;
+}
+
+.admin_style li a {
+  color: white !important;
+  padding: 20px !important;
+  text-decoration: none !important;
+}
+
+.admin_style li a:hover {
+  text-decoration: underline !important;
+}
