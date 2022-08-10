@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addPizza } from "../actions/pizzaActions";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { editPizza, getPizzaById } from "../actions/pizzaActions";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Success from "../components/Success";
 
-function Addpizza() {
+function Editpizza({ match }) {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const [smallprice, setSmallprice] = useState("");
   const [medprice, setMedprice] = useState("");
@@ -14,16 +16,35 @@ function Addpizza() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-  const dispatch = useDispatch();
+  const pizzabyidstate = useSelector((state) => state.getPizzaByIdReducer);
+  const { pizza, error, loading } = pizzabyidstate;
 
-  const addpizzastate = useSelector((state) => state.addPizzaReducer);
+  const editpizzastate = useSelector((state) => state.editPizzaReducer);
+  const { editloading, editsuccess, editerror } = editpizzastate;
 
-  const { loading, success, error } = addpizzastate;
+  useEffect(() => {
+    if (pizza) {
+      if (pizza._id == match.params.pizzaid) {
+        setName(pizza.name);
+        setSmallprice(pizza.prices[0]["small"]);
+        setMedprice(pizza.prices[0]["medium"]);
+        setLargeprice(pizza.prices[0]["large"]);
+        setImage(pizza.image);
+        setDescription(pizza.description);
+        setCategory(pizza.category);
+      } else {
+        dispatch(getPizzaById(match.params.pizzaid));
+      }
+    } else {
+      dispatch(getPizzaById(match.params.pizzaid));
+    }
+  }, [pizza, dispatch]);
 
   function handleform(e) {
     e.preventDefault();
 
-    const pizza = {
+    const editedpizza = {
+      _id: match.params.pizzaid,
       name,
       image,
       description,
@@ -35,19 +56,17 @@ function Addpizza() {
       },
     };
 
-    console.log(pizza);
-
-    dispatch(addPizza(pizza));
+    dispatch(editPizza(editedpizza));
   }
 
   return (
     <div>
+      <h1> Edit Pizza: {match.params.pizzaid} </h1>
       <div className="text-start">
-        <h1> Add Pizza </h1>
-
         {loading && <Loading />}
         {error && <Error error="Something went wrong" />}
-        {success && <Success success="New Pizza Added Successfully" />}
+        {editsuccess && <Success success="Pizza details edited successfully" />}
+        {editloading && <Loading />}
 
         <form onSubmit={handleform}>
           <input
@@ -113,9 +132,9 @@ function Addpizza() {
               setImage(e.target.value);
             }}
           />
-          <button className="btn btn_cart mt-3" type="submit">
+          <button className=" btn btn_cart mt-3" type="submit">
             {" "}
-            Add Pizza{" "}
+            Edit Pizza{" "}
           </button>
         </form>
       </div>
@@ -123,4 +142,4 @@ function Addpizza() {
   );
 }
 
-export default Addpizza;
+export default Editpizza;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import Addpizza from "./Addpizza";
+import Editpizza from "./Editpizza";
 import Orderslist from "./Orderslist";
 import Pizzaslist from "./Pizzaslist";
 import Userslist from "./Userslist";
@@ -61,6 +62,11 @@ function Admin() {
             <Route path="/admin/pizzaslist" component={Pizzaslist} exact />
             <Route path="/admin/addpizza" component={Addpizza} exact />
             <Route path="/admin/orderslist" component={Orderslist} exact />
+            <Route
+              path="/admin/editpizza/:pizzaid"
+              component={Editpizza}
+              exact
+            />
           </Switch>
         </div>
       </div>
